@@ -1,0 +1,26 @@
+local ball = workspace:FindFirstChild("Football")
+
+if ball then
+    -- Cria uma hitbox se não existir
+    local hitbox = ball:FindFirstChild("Hitbox") or ball:FindFirstChildWhichIsA("BasePart")
+
+    if hitbox then
+        -- Define tamanho da hitbox
+        hitbox.Size = Vector3.new(25, 25, 25)
+
+        -- Deixa visível
+        hitbox.Transparency = 0.5
+        hitbox.Color = Color3.fromRGB(255, 0, 0)
+        hitbox.Material = Enum.Material.Neon
+
+        -- Garante que a hitbox não fique ancorada nem perca colisão
+        hitbox.CanCollide = false
+        hitbox.Anchored = false
+
+        print("✅ Hitbox da bola aumentada para 5 e visível.")
+    else
+        warn("⚠️ Nenhuma parte de hitbox encontrada dentro da bola.")
+    end
+else
+    warn("⚠️ A bola 'Football' não foi encontrada no workspace.")
+end
